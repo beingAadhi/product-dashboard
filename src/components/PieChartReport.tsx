@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Product } from '../hooks/useProductReducer';
 import { PieChart } from '@mui/x-charts/PieChart';
+import { AnchorPosition } from "@mui/x-charts/ChartsLegend/legend.types";
 
 
 type ChartDetail = {
@@ -35,6 +36,19 @@ const PieChartReport: React.FC<{
     <>
       {showReport && (
         <PieChart
+          slotProps={{
+            legend:{
+              position:{
+                vertical:"bottom" ,
+                horizontal:"middle"
+              },
+              direction: "row"
+            }
+          }}
+          margin={{
+            bottom: 100,
+          }
+          }
           series={[
             { 
                 data: productPrices 
