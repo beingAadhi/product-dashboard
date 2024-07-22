@@ -6,7 +6,8 @@ export const FilterMultipleDropDown: React.FC<{
   items: Product[] | undefined,
   title: string,
   addSelectedProducts: (product: Product[]) => void
-}> = ({ items, title, addSelectedProducts }) => {
+  selectedProjectsFromCategory:Product[] | undefined,
+}> = ({ items, title, addSelectedProducts, selectedProjectsFromCategory }) => {
   
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
 
@@ -19,7 +20,9 @@ export const FilterMultipleDropDown: React.FC<{
     if (selectedProductObjects) addSelectedProducts(selectedProductObjects);
   }, [items, addSelectedProducts]);
 
- 
+  if( !selectedProjectsFromCategory && selectedProducts.length > 0 ) {
+    setSelectedProducts([])
+  }
 
   return (
     <Box sx={{ minWidth: 120 }}>

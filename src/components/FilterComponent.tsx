@@ -54,6 +54,7 @@ const FilterComponent: React.FC<{
         items={products} 
         title="Products" 
         addSelectedProducts={addSelectedProducts} 
+        selectedProjectsFromCategory={selectedProducts}
       />
       <div className="emptyArea" />
       <Button 
