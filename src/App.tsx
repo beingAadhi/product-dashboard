@@ -3,6 +3,7 @@ import './App.css';
 import FilterComponent from './components/FilterComponent';
 import Report from './components/Report';
 import { useProductDetails } from './hooks/UseProductDetails';
+import PieChartReport from './components/PieChartReport';
 
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
           clearReport= {productDetails.clearReport}
           loading={productDetails.loading}
         />
-      <Report 
-        selectedProducts={productDetails.selectedProducts ? productDetails.selectedProducts : productDetails.products} 
+      { productDetails.selectedProducts ? <Report 
+        selectedProducts={productDetails.selectedProducts} 
         showReport = {productDetails.showReport} 
-      />
+      /> :  <PieChartReport selectedProducts={productDetails.products} showReport={productDetails.showReport}/>
+      }
     </div> 
   );
 }
