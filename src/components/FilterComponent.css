@@ -1,0 +1,17 @@
+.filter {
+    border: gray 1px solid;
+    flex-basis: 40%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    max-width: 300px;
+}
+.heading {
+    padding: 0.5rem;;
+}
+.emptyArea{
+    flex:1
+}

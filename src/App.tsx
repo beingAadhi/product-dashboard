@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FilterComponent from './components/FilterComponent';
+import Report from './components/Report';
+import { useProductDetails } from './hooks/UseProductDetails';
+
 
 function App() {
+  const productDetails = useProductDetails();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="dashboard">
+       <FilterComponent 
+          categories={productDetails.categories } 
+          selectedCategory={productDetails.updateselectedCategory} 
+          products={productDetails.products}
+          choosenCategory={productDetails.selectedCategory}
+          addSelectedProducts={productDetails.addProduct}
+          selectedProducts={productDetails.selectedProducts}
+          showReport = {productDetails.showReport}
+          displayReport = {productDetails.addReport}
+          clearReport= {productDetails.clearReport}
+          loading={productDetails.loading}
+        />
+      <Report 
+        selectedProducts={productDetails.selectedProducts ? productDetails.selectedProducts : productDetails.products} 
+        showReport = {productDetails.showReport} 
+      />
+    </div> 
   );
 }
 
